@@ -16,6 +16,13 @@ Route::group(['prefix' => 'motto', 'namespace' => 'Motto'], function () {
     Route::get('{motto}', 'MottoController@detail');
 });
 
+// 文章
+Route::group(['prefix' => 'article', 'namespace' => 'Article'], function () {
+    Route::get('/', 'ArticleController@index');
+    Route::get('{article}', 'ArticleController@detail');
+    Route::get('comment/{comment}', 'ArticleController@commentDeatil');
+});
+
 // 后端数据API路由
 Route::group(['prefix' => 'api'], function () {
     Route::group(['prefix' => 'motto', 'namespace' => 'Motto'], function () {
