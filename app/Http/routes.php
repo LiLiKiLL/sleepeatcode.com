@@ -20,7 +20,7 @@ Route::group(['prefix' => 'motto', 'namespace' => 'Motto'], function () {
 Route::group(['prefix' => 'article', 'namespace' => 'Article'], function () {
     Route::get('/', 'ArticleController@index');
     Route::get('{article}', 'ArticleController@detail');
-    Route::get('comment/{comment}', 'ArticleController@commentDeatil');
+    Route::post('{article}/comment', 'ArticleCommentController@add');
 });
 
 // 后端数据API路由

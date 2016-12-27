@@ -1,11 +1,11 @@
 <?php
 namespace App\Http\Controllers\Article;
 
-use App\Http\Controllers\BaseController;
-use App\Models\Article\Article;
+use App\Http\Controllers\Controller;
+use App\Models\Article;
 use DB;
 
-class ArticleController extends BaseController {
+class ArticleController extends Controller {
     public function index() {
         $articles = Article::all();
 

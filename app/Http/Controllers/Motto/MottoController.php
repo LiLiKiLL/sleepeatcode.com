@@ -1,11 +1,11 @@
 <?php
 namespace App\Http\Controllers\Motto;
 
-use App\Http\Controllers\BaseController;
-use App\Models\Motto\Motto;
+use App\Http\Controllers\Controller;
+use App\Models\Motto;
 use DB;
 
-class MottoController extends BaseController {
+class MottoController extends Controller {
     public function index() {
         return "welcome";
     }
