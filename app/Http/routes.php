@@ -21,6 +21,8 @@ Route::group(['prefix' => 'article', 'namespace' => 'Article'], function () {
     Route::get('/', 'ArticleController@index');
     Route::get('{article}', 'ArticleController@detail');
     Route::post('{article}/comment', 'ArticleCommentController@add');
+    Route::get('{article}/comment/{comment}/edit', 'ArticleCommentController@edit');
+    Route::patch('{article}/comment/{comment}', 'ArticleCommentController@update');// 资源路由patch:update-更新操作
 });
 
 // 后端数据API路由

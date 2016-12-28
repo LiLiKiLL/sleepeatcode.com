@@ -42,4 +42,14 @@ class ArticleCommentController extends Controller
 
         return back();
     }
+
+    public function edit(Article $article, ArticleComment $comment) {
+        return view('article.comment_edit', compact('article', 'comment'));
+    }
+
+    public function update(Request $request, Article $article, ArticleComment $comment) {
+        $comment->update($request->all());
+        
+        return back();
+    }
 }

@@ -12,7 +12,7 @@ class CreateMottosTable extends Migration
      */
     public function up()
     {
-        Schema::create('motto', function (Blueprint $table) {
+        Schema::create('mottos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('author');
             $table->string('content');

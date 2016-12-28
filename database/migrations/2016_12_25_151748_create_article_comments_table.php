@@ -14,6 +14,7 @@ class CreateArticleCommentsTable extends Migration
     {
         Schema::create('article_comments', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned()->index();
             $table->integer('article_id')->unsigned()->index();
             $table->string('content', 1024);
             $table->timestamps();
