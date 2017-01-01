@@ -6,12 +6,15 @@
             <h1>{{ $article->title }}</h1>
             <ul class="list-group">
             @foreach ($article->comments as $comment) 
-                <li class="list-group-item">{{ $comment->content }}</li>
+                <li class="list-group-item">
+                    {{ $comment->content }}
+                    <a href="#" style="float:right;">{{ $comment->user->username }}</a>
+                </li>
             @endforeach
             </ul>
             <hr>
-            <h3>Add a new article</h3>
-            
+            <h3>Add a new article Comment</h3>
+
             <form action="/article/{{ $article->id }}/comment" method="POST">
                 <div class="form-group">
                     <textarea name="content" class="form-control" id="" cols="30" rows="10"></textarea>
