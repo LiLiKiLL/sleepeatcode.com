@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class ArticleComment extends Model
 {
-    protected $fillable = ['content'];
+    protected $fillable = ['content', 'user_id'];
+
+    public function by(User $user) {
+        $this->user_id = $user->id;
+    }
 
     public function article() {
         return $this->belongsTo(Article::class);

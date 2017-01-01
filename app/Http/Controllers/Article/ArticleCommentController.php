@@ -36,9 +36,22 @@ class ArticleCommentController extends Controller
         // $article->comments()->create($request->all());
 
         // 方式六
-        $article->addComment(
-            new ArticleComment($request->all())
-        );
+        // $article->addComment(
+        //     new ArticleComment($request->all())
+        // );
+
+        // 增加验证
+        $this->validate($request, [
+            'content' => 'required|min:10',
+        ]);
+
+        dump($errors);exit;
+        // 增加评论者ID
+        $comment = new ArticleComment($request->all());
+        // $comment->by(Auth::user());
+        // $comment->by(1);
+        // $comment->user_id = 1;
+        $article->addComment($comment, 1);
 
         return back();
     }

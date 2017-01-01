@@ -8,7 +8,7 @@
             @foreach ($article->comments as $comment) 
                 <li class="list-group-item">
                     {{ $comment->content }}
-                    <a href="#" style="float:right;">{{ $comment->user->username }}</a>
+                    <a href="#" class="pull-right">{{ $comment->user->username }}</a>
                 </li>
             @endforeach
             </ul>
@@ -16,14 +16,25 @@
             <h3>Add a new article Comment</h3>
 
             <form action="/article/{{ $article->id }}/comment" method="POST">
+                {{ csrf_field() }}
                 <div class="form-group">
-                    <textarea name="content" class="form-control" id="" cols="30" rows="10"></textarea>
+                    <textarea name="content" class="form-control" id="" cols="30" rows="10">{{ old('content') }}</textarea>
                 </div>
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Add Article</button>
                 </div>
             </form>
+            @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            {{ dump($errors) }}
         </div>
     </div>
 @stop

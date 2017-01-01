@@ -12,7 +12,9 @@ class Article extends Model
         return $this->hasMany(ArticleComment::class);
     }
 
-    public function addComment(ArticleComment $comment) {
+    public function addComment(ArticleComment $comment, $userId) {
+        $comment->user_id = $userId;
+
         return $this->comments()->save($comment);
     }
 }
