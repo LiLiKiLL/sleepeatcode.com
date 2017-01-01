@@ -38,6 +38,9 @@
     <body>
         <div class="container">
             <div class="content">
+                @if (Session::has('status'))
+                    <h3>{{ Session::get('status') }}</h3>
+                @endif
                 <div class="title">Laravel 5</div>
             </div>
         </div>

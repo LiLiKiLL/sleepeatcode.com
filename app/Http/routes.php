@@ -1,9 +1,12 @@
 <?php
-
 Route::group(['middleware' => 'web'], function () {
-
     Route::get('/', function () {
         return view('welcome');// resources/views/welcome.blade.php
+    });
+
+    Route::get('begin', function () {
+        Session::flash('status', 'Hi there');
+        return view('welcome');
     });
 
     // 基础页面
@@ -43,3 +46,5 @@ Route::group(['middleware' => 'web'], function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+
