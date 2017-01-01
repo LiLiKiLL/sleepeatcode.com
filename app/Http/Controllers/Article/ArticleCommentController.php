@@ -45,7 +45,6 @@ class ArticleCommentController extends Controller
             'content' => 'required|min:10',
         ]);
 
-        dump($errors);exit;
         // 增加评论者ID
         $comment = new ArticleComment($request->all());
         // $comment->by(Auth::user());

@@ -33,5 +33,9 @@ Route::group(['middleware' => 'web'], function () {
         });
     });
 
+    Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard'], function () {
+        // Route::get('/', 'DashboardController@index');
+        Route::get('/index', 'DashboardController@index');
+    });
 });
 
