@@ -6,6 +6,13 @@ use App\Models\Article;
 use DB;
 
 class ArticleController extends Controller {
+
+    protected $request;
+
+    public function __construct(Request $request) {
+        $this->request = $request;
+    }
+
     public function index() {
         $articles = Article::all();
 
