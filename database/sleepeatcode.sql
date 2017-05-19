@@ -17,7 +17,8 @@ CREATE TABLE IF NOT EXISTS `admin`(
 CREATE TABLE IF NOT EXISTS `bookmark_dir` (
     `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增ID',
     `name` varchar(16) NOT NULL DEFAULT '' COMMENT '文件夹名称',
-    `level` tinyint unsigned NOT NULL DEFAULT 1 COMMENT '文件夹级别',
+    `level` tinyint(4) unsigned NOT NULL DEFAULT 1 COMMENT '文件夹级别',
+    `status` tinyint(4) unsigned NOT NULL DEFAULT 1 COMMENT '状态：1-正常，2-隐藏（删除）',
     PRIMARY KEY (`id`),
     INDEX `idx_name` (`name`)
 )ENGINE=InnoDB CHARSET=utf8 COMMENT '书签文件夹表';
@@ -29,6 +30,8 @@ CREATE TABLE IF NOT EXISTS `bookmark` (
     `name` varchar(128) NOT NULL DEFAULT '' COMMENT '文件夹名称',
     `url` varchar(256) NOT NULL DEFAULT '' COMMENT '链接地址',
     `icon` varchar(256) NOT NULL DEFAULT '' COMMENT '网站icon',
+    `weight` int(11) unsigned NOT NULL DEFAULT 100 COMMENT '排序',
+    `status` tinyint(4) unsigned NOT NULL DEFAULT 1 COMMENT '状态：1-正常，2-隐藏（删除）',
     PRIMARY KEY (`id`),
     INDEX `idx_name` (`name`)
 )ENGINE=InnoDB CHARSET=utf8 COMMENT '书签分类表';

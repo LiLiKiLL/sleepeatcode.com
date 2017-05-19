@@ -11,16 +11,22 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as' => 'host', function () {
     return view('welcome');
-});
+}]);
 
 /**
  * 后台页面
  */
 Route::group(['prefix' => 'dashboard', 'namespace' => 'End\Page'], function () {
-    Route::get('register', 'AuthController@register');
-    Route::get('login', 'AuthController@login');
+    Route::get('/', 'IndexController@index');
+    Route::get('register', ['as' => 'admin_reg', 'uses' => 'AuthController@register']);
+    Route::get('login', ['as' => 'admin_login', 'uses' => 'AuthController@login']);
+
+    // 书签管理
+    Route::group(['prefix' => 'bookmark'], function () {
+        Route::get('add', 'BookmarkController@add');
+    });
 });
 
 /**
