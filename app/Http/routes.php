@@ -32,7 +32,7 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'End\Page'], function () {
 /**
  * 后台接口
  */
-Route::group(['prefix' => 'api'], function () {
-    Route::post('admin/register', 'End\Admin\AdminController@register');
-    Route::post('admin/login', 'End\Admin\AdminController@login');
+Route::group(['prefix' => 'api', 'namespace' => 'End'], function () {
+    Route::post('admin/register', 'Admin\AdminController@register');
+    Route::post('admin/login', 'Admin\AdminController@login');
 });

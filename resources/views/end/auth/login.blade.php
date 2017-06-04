@@ -12,6 +12,11 @@
                 <label for="password">密码：</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
             </div>
+            <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="remember" id="remember">记住我
+                </label>
+            </div>
             <button type="submit" class="btn btn-default">登录</button>
         </form>
     </div>

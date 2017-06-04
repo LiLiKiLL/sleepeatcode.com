@@ -24,7 +24,7 @@ class AdminController extends BaseController
                 $passwordConfirm = Input::get('password_confirm');
                 $admin = new Admin();
                 $id = $admin->register($nickname, $email, $password);
-                $this->_result = "Hi，$nickname，注册成功。";
+                $this->_result['desc'] = 'Hi，' . $nickname . '，注册成功。';
             }
             catch (\Exception $e) {
                 $this->_errCode = ErrMapping::ERR_INTERNAL_SERVER_ERR;
