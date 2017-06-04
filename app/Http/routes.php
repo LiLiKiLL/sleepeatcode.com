@@ -36,3 +36,7 @@ Route::group(['prefix' => 'api', 'namespace' => 'End'], function () {
     Route::post('admin/register', 'Admin\AdminController@register');
     Route::post('admin/login', 'Admin\AdminController@login');
 });
+
+Route::group(['prefix' => 'api/bookmark', 'namespace' => 'Bookmark'], function() {
+    Route::post('add', 'BookmarkController@add');
+});
