@@ -69,20 +69,20 @@ a.btn-lg {
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12 text-center">
+        <div class="col-md-12 col-sm-12 text-center">
             <h1 class=" white-color">陈旭</h1>
             <h3 class="gray-color">越努力，越幸运。</h3>
         </div>
     </div>
     <hr style="width:30%;background-color:gray;height:1px;border:0;">
     <div class="row">
-        <div class="col-md-12 text-center">
+        <div class="col-md-12 col-sm-12 text-center">
             <a href="/blog" class="btn btn-default btn-lg">博客</a>
             <a href="/resume" class="btn btn-default btn-lg">关于我</a>
         </div>
     </div>
     <div class="row contact">
-        <div class="col-md-12 text-center">
+        <div class="col-md-12 col-sm-12 text-center">
             <a href="http://weibo.com/u/2080783863" title="微博-小鹿在湖水之畔"><img src="/images/weibo.png" alt="微博"></a>
             <a href="javascript:void(0)" title="微信-嘘！" id="wechat"><img src="/images/wechat.png" alt="微信"><img src="/images/wechat-qrcode.png" alt="陈旭的微信二维码"  id="wechat-qrcode"></a>
             <a href="mailto:chrisx0909@gmail.com" title="Gmail邮箱"><img src="/images/mail.png" alt="邮箱"></a>
