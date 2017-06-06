@@ -86,8 +86,17 @@ a.btn-lg {
             <a href="http://weibo.com/u/2080783863" title="微博-小鹿在湖水之畔"><img src="/images/weibo.png" alt="微博"></a>
             <a href="javascript:void(0)" title="微信-嘘！" id="wechat"><img src="/images/wechat.png" alt="微信"><img src="/images/wechat-qrcode.png" alt="陈旭的微信二维码"  id="wechat-qrcode"></a>
             <a href="mailto:chrisx0909@gmail.com" title="Gmail邮箱"><img src="/images/mail.png" alt="邮箱"></a>
-            <a href="javascript:void(0)" title="手机号：150-6265-8814"><img src="/images/phone.png" alt="手机"></a>
+            <a href="javascript:void(0)" title="手机号：150-6265-8814"  data-toggle="tooltip"
+        title="手机号：150-6265-8814" ><img src="/images/phone.png" alt="手机"></a>
         </div>
     </div>
 </div>
 @endsection
+@section('js')
+<script>
+    $(function() {
+        $("[data-toggle='tooltip']").tooltip();
+    });
+</script>
+@endsection
+
