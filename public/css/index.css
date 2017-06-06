@@ -1,0 +1,9 @@
+/*col想要占满屏幕时-解决row里面col有15px的margin的问题*/
+.full-width-row {
+  overflow-x: hidden;
+}
+
+.full-width-row > div {
+  margin-left: -15px;
+  margin-right: -15px;
+}
