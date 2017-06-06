@@ -14,4 +14,9 @@ class TestController extends BaseController
 
         return $this->_jsonOutput();
     }
+
+    public function session1()
+    {
+
+    }
 }

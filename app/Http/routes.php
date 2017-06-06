@@ -12,7 +12,8 @@
 */
 
 Route::get('/', ['as' => 'host', function () {
-    return view('welcome');
+    return view('index');
+    // return view('welcome');
 }]);
 
 /**
@@ -38,5 +39,9 @@ Route::group(['prefix' => 'api', 'namespace' => 'End'], function () {
 });
 
 Route::group(['prefix' => 'api/bookmark', 'namespace' => 'Bookmark'], function() {
-    Route::post('add', 'BookmarkController@add');
+    Route::post('addDir', 'BookmarkController@addDir');
+});
+
+Route::group(['prefix' => 'test'], function () {
+    Route::get('session1', 'TestController@session1');
 });

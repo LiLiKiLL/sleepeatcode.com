@@ -19,6 +19,7 @@ class BookmarkController extends BaseController
     {
         $rules = [
             'name' => 'required',
+            'level' => 'status',
         ];
         if (true === $this->_checkParams($rules)) {
             dd($this->bookmarkDir->columns);exit;
