@@ -17,6 +17,16 @@ Route::get('/', ['as' => 'host', function () {
 }]);
 
 /**
+ * 前台页面
+ */
+Route::get('blog', function() {
+    return view('front/blog');
+});
+Route::get('resume', function() {
+    return view('front/resume');
+});
+
+/**
  * 后台页面
  */
 Route::group(['prefix' => 'dashboard', 'namespace' => 'End\Page'], function () {
