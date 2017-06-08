@@ -4,6 +4,8 @@
     background-repeat: no-repeat;
 }
 #home {
+    display: block;
+    margin:20px 0;
     font-size: 3em;
     font-weight: 500;
     line-height: 1.1;
