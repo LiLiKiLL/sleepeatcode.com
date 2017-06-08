@@ -13,7 +13,7 @@
 @endsection
 @section('main_content')
 <div class="resume">
-    <p>做一个靠谱的人</p>
+    <h1>做一个靠谱的人</h1>
     <div class="chapter me">
         <h2>我是谁</h2>
         <ul>
