@@ -1,9 +1,9 @@
 <div class="nav">
     <div class="text-center" style="margin-top:50px;">
-        <a href="{{ route('host') }}"><img src="/images/portrait.gif" alt="头像" id="portrait"></a>
+        <a href="{{ route('home') }}"><img src="/images/portrait.gif" alt="头像" id="portrait"></a>
     </div>
     <div class="text-center">
-        <a href="{{ route('host') }}" id="home">陈旭</a>
+        <a href="{{ route('home') }}" id="home">陈旭</a>
         <h3 class="gray-color">越努力，越幸运。</h3>
     </div>
     <hr style="width:30%;background-color:gray;height:1px;border:0;">

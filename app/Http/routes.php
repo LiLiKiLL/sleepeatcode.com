@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', ['as' => 'host', function () {
-    return view('index');
-    // return view('welcome');
-}]);
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('test', function() {
     return view(' test');
 });
@@ -22,11 +21,11 @@ Route::get('test', function() {
 /**
  * 前台页面
  */
-Route::get('blog', function() {
-    return view('front/blog');
-});
-Route::get('resume', function() {
-    return view('front/resume');
+Route::group(['namespace' => 'Front'], function() {
+    Route::get('/', ['as' => 'home', 'uses' => 'PageController@home']);
+    Route::get('blog', ['as' => 'blog', 'uses' => 'PageController@blog']);
+    Route::get('blog/{id}', ['as' => 'blog_view', 'uses' => 'PageController@blogView']);
+    Route::get('resume', ['as' => 'resume', 'uses' => 'PageController@resume']);
 });
 
 /**
@@ -46,9 +45,9 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'End\Page'], function () {
     Route::group(['prefix' => 'article'], function () {
         Route::match(['get', 'post'], 'add', ['as' => 'article_add', 'uses' => 'ArticleController@add']);
         Route::get('list', ['as' => 'article_list', 'uses' => 'ArticleController@getList']);
-        Route::get('preview', ['as' => 'article_preview', 'uses' => 'ArticleController@preview']);
-        Route::match(['get', 'post'], 'edit', ['as' => 'article_edit', 'uses' => 'ArticleController@edit']);
-        Route::get('delete', ['as' => 'article_delete', 'uses' => 'ArticleController@delete']);
+        Route::get('preview/{id}', ['as' => 'article_preview', 'uses' => 'ArticleController@preview']);
+        Route::match(['get', 'post'], 'edit/{id}', ['as' => 'article_edit', 'uses' => 'ArticleController@edit']);
+        Route::get('delete/{id}', ['as' => 'article_delete', 'uses' => 'ArticleController@delete']);
     });
 });
 

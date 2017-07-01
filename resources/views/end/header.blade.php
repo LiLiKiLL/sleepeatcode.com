@@ -3,7 +3,7 @@
         <nav class="navbar navbar-inverse" role="navigation">
             <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="{{ route('host') }}">SleepEatCode</a>
+                <a class="navbar-brand" href="{{ route('home') }}">SleepEatCode</a>
             </div>
             <div>
                 <ul class="nav navbar-nav">

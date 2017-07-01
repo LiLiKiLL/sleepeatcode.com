@@ -7,19 +7,21 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/common.css" rel="stylesheet">
-    <link href="/css/home.css" rel="stylesheet">
     @yield('css')
 </head>
 <body>
-@yield('content')
+    <div class="container-fluid">
+        @include('front.header')
+        @yield('content')
+        @include('front.footer')
+    </div>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+@yield('js')
 <script>
     $(function() {
         $("[data-toggle='tooltip']").tooltip();
-        $('.nav').height($(document).height());
     });
 </script>
-@yield('js')
 </body>
 </html>

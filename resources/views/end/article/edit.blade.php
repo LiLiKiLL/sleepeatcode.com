@@ -17,7 +17,20 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="content" class="col-md-2 control-label">文章内容</label>
+                <label for="abstract" class="col-md-2 control-label">摘要</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" id="abstract" name="abstract">{{ $data['abstract']}}</textarea>
+                    <p class="help-block">54个字以内</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="tag" class="col-md-2 control-label">标签</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="tag" name="tag" placeholder="" value="{{$data['tag'] }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="content" class="col-md-2 control-label">正文</label>
                 <div class="col-md-10" id="article-editormd">
                     <textarea class="form-control" id="content" name="content" placeholder="">{{ $data['content'] }}</textarea>
                 </div>

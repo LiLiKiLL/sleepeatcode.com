@@ -14,7 +14,9 @@ class ArticleController extends BaseController
     {
         if (Request::isMethod('post')) {
             $rules = [
-                'title' => 'required',
+                'title' => 'required|string|max:20',
+                'abstract' => 'string|max:54',
+                'tag' => 'string|max:128',
                 'content' => 'required',
             ];
             if (true === $this->_checkParams($rules)) {
@@ -37,14 +39,11 @@ class ArticleController extends BaseController
         return view($this->viewPrefix . 'list', $data);
     }
 
-    public function edit()
+    public function edit($id)
     {
-        $rules = [
-            'id' => 'required',
-        ];
+        $rules = [];
         if (true === $this->_checkParams($rules)) {
             $article = new Article();
-            $id = Input::get('id');
             if (Request::isMethod('get')) {
                 $result = $article->info($id);
                 $data = ['data' => $result];
@@ -61,13 +60,10 @@ class ArticleController extends BaseController
         return $this->_jsonOutput();
     }
 
-    public function delete()
+    public function delete($id)
     {
-        $rules = [
-            'id' => 'required',
-        ];
+        $rules = [];
         if (true === $this->_checkParams($rules)) {
-            $id = Input::get('id');
             $article = new Article();
             $result = $article->del($id);
         }
@@ -75,13 +71,10 @@ class ArticleController extends BaseController
         return redirect(route('article_list'));
     }
 
-    public function preview()
+    public function preview($id)
     {
-        $rules = [
-            'id' => 'required',
-        ];
+        $rules = [];
         if (true === $this->_checkParams($rules)) {
-            $id = Input::get('id');
             $article = new Article();
             $result = $article->info($id);
             $data = ['data' => $result];

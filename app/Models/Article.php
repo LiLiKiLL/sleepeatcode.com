@@ -9,24 +9,37 @@ class Article extends Model
     protected $table = 'article';
     public $timestamps = false;
 
+    public $allowKeys = ['title', 'abstract', 'tag', 'content'];
+
     public function add($data)
     {
-        $data = array_only($data, ['title', 'content']);
+        $data = array_only($data, $this->allowKeys);
+        // 替换标签中的英文逗号为中文
+        $data['tag'] = str_replace(',', '，', $data['tag']);
         $data['create_at'] = $data['update_at'] = time();
         $id = self::insertGetId($data);
 
         return $id;
     }
 
-    public function getList()
+    public function getList($conds = array(), $page = 1, $pageSize = 10)
     {
-        $result = self::select('*')->orderBy('create_at', 'desc')->get();
-        $result = empty($result) ? array() : $result->toArray();
-        foreach ($result as $k => &$v) {
-            $this->_filterInfo($v);
+        $result = self::select('*');
+        $result->orderBy('create_at', 'desc');
+        $pagination = $result->paginate($pageSize, '*', 'page', $page)->toArray();
+        if ($pagination['data']) {
+            foreach ($pagination['data'] as $k => &$v) {
+                $this->_filterInfo($v);
+            }
         }
 
-        return $result;
+        return array(
+            'total' => $pagination['total'],
+            'total_page' => $pagination['last_page'],
+            'page' => $pagination['current_page'],
+            'page_size' => $pageSize,
+            'data' => $pagination['data']
+        );
     }
 
     public function info($id)
@@ -40,7 +53,7 @@ class Article extends Model
 
     public function edit($id, $data)
     {
-        $data = array_only($data, ['title', 'content']);
+        $data = array_only($data, $this->allowKeys);
         $data['update_at'] = time();
         $result = self::where('id', $id)->update($data);
 

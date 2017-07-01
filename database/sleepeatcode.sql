@@ -39,8 +39,11 @@ CREATE TABLE IF NOT EXISTS `bookmark` (
 -- 创建文章表
 CREATE TABLE IF NOT EXISTS `article` (
     `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增ID',
-    `title` varchar(128) NOT NULL DEFAULT '' COMMENT '文件夹名称',
+    `title` varchar(128) NOT NULL DEFAULT '' COMMENT '标题',
+    `abstract` varchar(128) NOT NULL DEFAULT '' COMMENT '摘要',
     `content` text NOT NULL COMMENT '文章内容',
+    `tag` varchar(128) NOT NULL DEFAULT '' COMMENT '标签',
+    `read` int(11) NOT NULL DEFAULT 0 COMMENT '阅读量',
     `create_at` int(11) NOT NULL DEFAULT 0 COMMENT '创建时间',
     `update_at` int(11) NOT NULL DEFAULT 0 COMMENT '更新时间',
     PRIMARY KEY (`id`),
