@@ -38,16 +38,7 @@ class BaseController extends Controller
      */
     protected function _jsonOutput($headers = array())
     {
-        if($this->_errno && empty($this->_msg)) {
-            $this->_msg = ErrMapping::getMessage($this->_errno);
-        }
-        $result = [
-            'meta' => [
-                'errno' => $this->_errno,
-                'msg' => $this->_msg,
-            ],
-            'result' => empty($this->_result) ? new \StdClass() : $this->_result,
-        ];
+        $result = $this->getResult();
         Log::info(sprintf('ip[%s] url[%s] request[%s] result[%s]', Request::getClientIp(), Request::url(), json_encode(Input::all()), json_encode($result)));
 
         $response = response()->json($this->_filterReturn($result));
@@ -106,5 +97,21 @@ class BaseController extends Controller
                 }
             }
         }
+    }
+
+    protected function getResult()
+    {
+        if($this->_errno && empty($this->_msg)) {
+            $this->_msg = ErrMapping::getMessage($this->_errno);
+        }
+        $result = [
+            'meta' => [
+                'errno' => $this->_errno,
+                'msg' => $this->_msg,
+            ],
+            'result' => empty($this->_result) ? new \StdClass() : $this->_result,
+        ];
+
+        return $result;
     }
 }

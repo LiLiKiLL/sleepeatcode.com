@@ -44,7 +44,7 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'End\Page'], function () {
 
     // 博客文章管理
     Route::group(['prefix' => 'article'], function () {
-        Route::get('add', ['as' => 'article_add', 'uses' => 'ArticleController@add']);
+        Route::match(['get', 'post'], 'add', ['as' => 'article_add', 'uses' => 'ArticleController@add']);
         Route::get('list', ['as' => 'article_list', 'uses' => 'ArticleController@getList']);
         Route::get('preview', ['as' => 'article_preview', 'uses' => 'ArticleController@preview']);
         Route::match(['get', 'post'], 'edit', ['as' => 'article_edit', 'uses' => 'ArticleController@edit']);
@@ -62,10 +62,6 @@ Route::group(['prefix' => 'api', 'namespace' => 'End\Admin'], function () {
 
 Route::group(['prefix' => 'api/bookmark', 'namespace' => 'Bookmark'], function() {
     Route::post('addDir', 'BookmarkController@addDir');
-});
-
-Route::group(['prefix' => 'api/article', 'namespace' => 'Article'], function() {
-    Route::post('add', 'ArticleController@add');
 });
 
 Route::group(['prefix' => 'test'], function () {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\End\Page;
 use App\Http\Controllers\BaseController;
 use App\Models\Article;
 use Input, Request;
+use App\Services\ErrMapping;
 
 class ArticleController extends BaseController
 {
@@ -11,7 +12,20 @@ class ArticleController extends BaseController
 
     public function add()
     {
-        return view($this->viewPrefix . 'add');
+        if (Request::isMethod('post')) {
+            $rules = [
+                'title' => 'required',
+                'content' => 'required',
+            ];
+            if (true === $this->_checkParams($rules)) {
+                $params = Input::all();
+                $article = new Article();
+                $id = $article->add($params);
+                return redirect(route('article_list'));
+            }
+        } else {
+            return view($this->viewPrefix . 'add');
+        }
     }
 
     public function getList()
@@ -38,9 +52,8 @@ class ArticleController extends BaseController
                 return view($this->viewPrefix . 'edit', $data);
             }
             if (Request::isMethod('post')) {
-                $data = Input::all();
-                $result = $article->edit($id, $data);
-
+                $params = Input::all();
+                $result = $article->edit($id, $params);
                 return redirect(route('article_list'));
             }
         }

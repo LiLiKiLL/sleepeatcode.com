@@ -9,7 +9,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
-        <form class="form-horizontal" action="/api/article/add" role="form" method="post">
+        <form class="form-horizontal" action="" role="form" method="post">
             <div class="form-group">
                 <label for="title" class="col-md-2 control-label">标题</label>
                 <div class="col-md-10">

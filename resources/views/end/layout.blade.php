@@ -11,6 +11,7 @@
     <!-- <div class="container-fluid"> -->
     <div class="container">
         @include('end.header')
+        @include('end.alert')
         @yield('content')
     </div>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
