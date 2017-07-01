@@ -15,6 +15,9 @@ Route::get('/', ['as' => 'host', function () {
     return view('index');
     // return view('welcome');
 }]);
+Route::get('test', function() {
+    return view(' test');
+});
 
 /**
  * 前台页面
@@ -38,18 +41,31 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'End\Page'], function () {
     Route::group(['prefix' => 'bookmark'], function () {
         Route::get('add', 'BookmarkController@add');
     });
+
+    // 博客文章管理
+    Route::group(['prefix' => 'article'], function () {
+        Route::get('add', ['as' => 'article_add', 'uses' => 'ArticleController@add']);
+        Route::get('list', ['as' => 'article_list', 'uses' => 'ArticleController@getList']);
+        Route::get('preview', ['as' => 'article_preview', 'uses' => 'ArticleController@preview']);
+        Route::match(['get', 'post'], 'edit', ['as' => 'article_edit', 'uses' => 'ArticleController@edit']);
+        Route::get('delete', ['as' => 'article_delete', 'uses' => 'ArticleController@delete']);
+    });
 });
 
 /**
  * 后台接口
  */
-Route::group(['prefix' => 'api', 'namespace' => 'End'], function () {
-    Route::post('admin/register', 'Admin\AdminController@register');
-    Route::post('admin/login', 'Admin\AdminController@login');
+Route::group(['prefix' => 'api', 'namespace' => 'End\Admin'], function () {
+    Route::post('admin/register', 'AdminController@register');
+    Route::post('admin/login', 'AdminController@login');
 });
 
 Route::group(['prefix' => 'api/bookmark', 'namespace' => 'Bookmark'], function() {
     Route::post('addDir', 'BookmarkController@addDir');
+});
+
+Route::group(['prefix' => 'api/article', 'namespace' => 'Article'], function() {
+    Route::post('add', 'ArticleController@add');
 });
 
 Route::group(['prefix' => 'test'], function () {

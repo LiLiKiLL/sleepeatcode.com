@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>@yield('title')SleepEatCode</title>
-    @yield('css')
     <link rel="shortcut icon" href="favicon.ico">
     <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/index.css" rel="stylesheet">
     <link href="/css/nav.css" rel="stylesheet">
+    @yield('css')
 </head>
 <body>
 @yield('content')

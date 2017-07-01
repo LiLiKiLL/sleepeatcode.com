@@ -11,11 +11,11 @@
                     <li><a href="{{ route('admin_login') }}">登录</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            书签管理 <b class="caret"></b>
+                            博客文章管理 <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">jmeter</a></li>
-                            <li><a href="#">EJB</a></li>
+                            <li><a href="{{ route('article_add') }}">写博客</a></li>
+                            <li><a href="{{ route('article_list') }}">博客列表</a></li>
                             <li><a href="#">Jasper Report</a></li>
                             <li class="divider"></li>
                             <li><a href="#">分离的链接</a></li>

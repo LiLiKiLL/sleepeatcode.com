@@ -1,1 +1,1 @@
-@extends('end.endlayout')
+@extends('end.layout')

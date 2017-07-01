@@ -1,4 +1,4 @@
-@extends('end.endlayout')
+@extends('end.layout')
 @section('title', '后台管理员注册')
 @section('content')
 <div class="row">
@@ -24,6 +24,8 @@
         </form>
     </div>
 </div>
+@endsection
+@section('js')
 <script type="text/javascript">
     $(function() {
         $('#register-form').validate({
