@@ -16,7 +16,7 @@ class PageController extends BaseController
     {
         $article = new Article();
         $result = $article->getList();
-        $data = ['data' => $result];
+        $data = ['articles' => $result];
         $tags = $article->getAllTags();
         $data['tags'] = $tags;
 
@@ -28,7 +28,7 @@ class PageController extends BaseController
         $article = new Article();
         $article->read($id);// 阅读量+1
         $result = $article->info($id);
-        $data = ['data' => $result];
+        $data = ['article' => $result];
         $tags = $article->getAllTags();
         $data['tags'] = $tags;
 
@@ -40,9 +40,19 @@ class PageController extends BaseController
         return view('front/resume');
     }
 
-    public function blogTag()
+    /**
+     * 根据tag返回博客列表
+     * @return [type] [description]
+     */
+    public function blogTag($tag)
     {
+        $article = new Article();
+        $result = $article->getByTag($tag);
+        $data = ['articles' => $result];
+        $tags = $article->getAllTags();
+        $data['tags'] = $tags;
 
+        return view('front/blog', $data);
     }
 
     public function blogTags()

@@ -15,30 +15,30 @@
 </div>
 <div class="row">
     <div class="col-md-7 col-md-offset-1">
-        @foreach($data['data'] as $k => $blog)
-            <?php $tagArray = explode('，', $blog['tag']); ?>
+        @foreach($articles['data'] as $k => $article)
+            <?php $tagArray = explode('，', $article['tag']); ?>
             <div class="per-article">
-                <h2><a href="{{ route('blog_view', ['id' => $blog['id']]) }}">{{ $blog['title'] }}</a></h2>
+                <h2><a href="{{ route('blog_view', ['id' => $article['id']]) }}">{{ $article['title'] }}</a></h2>
                 <div class="info">
                     <span class="article-info">
                         <span class="glyphicon glyphicon-calendar"></span>
-                        <span class="text-muted">{{ $blog['create_at'] }}</span>
+                        <span class="text-muted">{{ $article['create_at'] }}</span>
                     </span>
                     <span class="article-info">
                         @if (! empty($tagArray))
                             <span class="glyphicon glyphicon-tags"></span>
                         @endif
                         @foreach ($tagArray as $tag)
-                            <a href="#">{{ $tag }}</a>
+                            <a href="{{ route('blog_tag', ['tag' => $tag]) }}">{{ $tag }}</a>
                         @endforeach
                     </span>
                     <span class="article-info">
                         <span class="glyphicon glyphicon-eye-open"></span>
-                        <span class="text-primary">{{ $blog['read'] }}℃</span>
+                        <span class="text-primary">{{ $article['read'] }}℃</span>
                     </span>
                 </div>
-                <div class="article-preview" id="article-{{ $blog['id'] }}">
-                    <textarea id="append-test">{{ $blog['abstract'] }}</textarea>
+                <div class="article-preview" id="article-{{ $article['id'] }}">
+                    <textarea id="append-test">{{ $article['abstract'] }}</textarea>
                 </div>
             </div>
             <hr>
