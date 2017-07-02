@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>@yield('title')SleepEatCode</title>
     <link rel="shortcut icon" href="/favicon.ico">
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="/css/common.css" rel="stylesheet">
     @yield('css')
 </head>

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>@yield('title')-sleepeatcode.com</title>
     <link rel="shortcut icon" href="/favicon.ico">
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
     @yield('css')
 </head>
 <body>
