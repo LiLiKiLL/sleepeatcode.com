@@ -20,11 +20,22 @@
             <div class="per-article">
                 <h2><a href="{{ route('blog_view', ['id' => $blog['id']]) }}">{{ $blog['title'] }}</a></h2>
                 <div class="info">
-                    <span class="text-muted">{{ $blog['create_at'] }}</span>
-                    @foreach ($tagArray as $tag)
-                        <a href="#">{{ $tag }}</a>
-                    @endforeach
-                    <span class="text-primary">{{ $blog['read'] }}views</span>
+                    <span class="article-info">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        <span class="text-muted">{{ $blog['create_at'] }}</span>
+                    </span>
+                    <span class="article-info">
+                        @if (! empty($tagArray))
+                            <span class="glyphicon glyphicon-tags"></span>
+                        @endif
+                        @foreach ($tagArray as $tag)
+                            <a href="#">{{ $tag }}</a>
+                        @endforeach
+                    </span>
+                    <span class="article-info">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                        <span class="text-primary">{{ $blog['read'] }}views</span>
+                    </span>
                 </div>
                 <div class="article-preview" id="article-{{ $blog['id'] }}">
                     <textarea id="append-test">{{ $blog['abstract'] }}</textarea>
