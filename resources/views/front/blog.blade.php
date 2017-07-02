@@ -14,7 +14,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-8 col-md-offset-1">
+    <div class="col-md-7 col-md-offset-1">
         @foreach($data['data'] as $k => $blog)
             <?php $tagArray = explode('，', $blog['tag']); ?>
             <div class="per-article">
@@ -34,7 +34,7 @@
                     </span>
                     <span class="article-info">
                         <span class="glyphicon glyphicon-eye-open"></span>
-                        <span class="text-primary">{{ $blog['read'] }}views</span>
+                        <span class="text-primary">{{ $blog['read'] }}℃</span>
                     </span>
                 </div>
                 <div class="article-preview" id="article-{{ $blog['id'] }}">
@@ -44,8 +44,10 @@
             <hr>
         @endforeach
     </div>
-    <div class="col-md-2 col-md-pull-1">
-
+    <div class="col-md-3">
+        @include('front.me')
+        @include('front.tags')
+        @include('front.links')
     </div>
 </div>
 @endsection

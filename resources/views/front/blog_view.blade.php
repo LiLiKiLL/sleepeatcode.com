@@ -14,15 +14,17 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-8 col-md-offset-1">
+    <div class="col-md-7 col-md-offset-1">
         <div class="per-article">
             <div id="article-preview">
                 <textarea id="append-test" style="display:none;">{{ $data['content'] }}</textarea>
             </div>
         </div>
     </div>
-    <div class="col-md-2 col-md-pull-1">
-
+    <div class="col-md-3">
+        @include('front.me')
+        @include('front.tags')
+        @include('front.links')
     </div>
 </div>
 @endsection

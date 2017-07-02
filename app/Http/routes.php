@@ -26,6 +26,8 @@ Route::group(['namespace' => 'Front'], function() {
     Route::get('blog', ['as' => 'blog', 'uses' => 'PageController@blog']);
     Route::get('blog/{id}', ['as' => 'blog_view', 'uses' => 'PageController@blogView']);
     Route::get('resume', ['as' => 'resume', 'uses' => 'PageController@resume']);
+    Route::get('blog/tag/{tag}', ['as' => 'blog_tag', 'uses' => 'PageController@blogTag']);
+    Route::get('blog/tags', ['as' => 'blog_tags', 'uses' => 'PageController@blogTags']);
 });
 
 /**

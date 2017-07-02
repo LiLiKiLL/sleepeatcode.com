@@ -74,6 +74,24 @@ class Article extends Model
         return self::where('id', $id)->increment('read');
     }
 
+    /**
+     * 获取所有标签
+     * @return [type] [description]
+     */
+    public function getAllTags()
+    {
+        $tags = self::lists('tag');
+        $tags = empty($tags) ? array() : $tags->toArray();
+        $result = array();
+        foreach ($tags as $k => $tagStr) {
+            $tagArray = explode('，', $tagStr);
+            $result = array_merge($result, $tagArray);
+        }
+        $result = array_values(array_unique($result));
+
+        return $result;
+    }
+
     protected function _filterInfo(&$data)
     {
         Lib::timestampsFormat($data, ['create_at', 'update_at'], 'Y-m-d H:i:s');
