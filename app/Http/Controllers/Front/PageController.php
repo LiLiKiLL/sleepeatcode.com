@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\BaseController;
 use App\Models\Article;
+use Input;
 
 class PageController extends BaseController
 {
@@ -14,8 +15,11 @@ class PageController extends BaseController
 
     public function blog()
     {
+        $page = Input::get('page', 1);
+        $pageSize = Input::get('page_size', 10);
+        $conds = array();
         $article = new Article();
-        $result = $article->getList();
+        $result = $article->getList($conds, $page, $pageSize);
         $data = ['articles' => $result];
         $tags = $article->getAllTags();
         $data['tags'] = $tags;
@@ -46,8 +50,10 @@ class PageController extends BaseController
      */
     public function blogTag($tag)
     {
+        $page = Input::get('page', 1);
+        $pageSize = Input::get('page_size', 10);
         $article = new Article();
-        $result = $article->getByTag($tag);
+        $result = $article->getByTag($tag, $page, $pageSize);
         $data = ['articles' => $result];
         $tags = $article->getAllTags();
         $data['tags'] = $tags;

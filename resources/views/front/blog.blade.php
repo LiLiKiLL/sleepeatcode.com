@@ -43,6 +43,15 @@
             </div>
             <hr>
         @endforeach
+        @if ($articles['total_page'] > 1)
+            <ul class="pagination">
+                <li class="<?php if ($articles['page'] <= 1) { echo 'disabled'; } ?>"><a href="{{ '?page=' . ($articles['page'] - 1) }}">&laquo;</a></li>
+                @for ($i = 1; $i <= $articles['total_page']; $i++)
+                    <li class="<?php if ($articles['page'] == $i) { echo 'active'; } ?>"><a href="{{ '?page=' . $i }}">{{ $i }}</a></li>
+                @endfor
+                <li class="<?php if ($articles['total_page'] == $articles['page']) { echo 'disabled'; } ?>"><a href="{{ '?page=' . ($articles['page'] + 1) }}">&raquo;</a></li>
+            </ul>
+        @endif
     </div>
     <div class="col-md-3">
         @include('front.me')
