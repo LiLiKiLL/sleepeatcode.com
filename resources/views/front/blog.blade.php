@@ -1,5 +1,7 @@
 @extends('front.layout')
 
+@section('title', 'Blog-')
+
 @section('css')
 <link href="/css/blog.css" rel="stylesheet">
 <link href="/editor.md/css/editormd.css" rel="stylesheet">
@@ -7,15 +9,22 @@
 
 @section('content')
 <div class="row full-width-row article-title">
-    <h2 class="center-block">Welcome</h2>
+    <div class="col-md-12">
+        <h2 class="text-center" style="margin-bottom:20px;">Welcome</h2>
+    </div>
 </div>
 <div class="row">
     <div class="col-md-8 col-md-offset-1">
         @foreach($data['data'] as $k => $blog)
+            <?php $tagArray = explode('，', $blog['tag']); ?>
             <div class="per-article">
                 <h2><a href="{{ route('blog_view', ['id' => $blog['id']]) }}">{{ $blog['title'] }}</a></h2>
                 <div class="info">
                     <span class="text-muted">{{ $blog['create_at'] }}</span>
+                    @foreach ($tagArray as $tag)
+                        <a href="#">{{ $tag }}</a>
+                    @endforeach
+                    <span class="text-primary">{{ $blog['read'] }}views</span>
                 </div>
                 <div class="article-preview" id="article-{{ $blog['id'] }}">
                     <textarea id="append-test">{{ $blog['abstract'] }}</textarea>

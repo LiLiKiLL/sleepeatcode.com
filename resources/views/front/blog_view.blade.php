@@ -1,13 +1,17 @@
 @extends('front.layout')
 
+@section('title', $data['title'] . '-')
+
 @section('css')
 <link href="/css/blog.css" rel="stylesheet">
 <link href="/editor.md/css/editormd.css" rel="stylesheet">
 @endsection
 
 @section('content')
-<div class="row full-width-row">
-    <h2 class="center-block">{{ $data['title'] }}</h2>
+<div class="row full-width-row article-title">
+    <div class="col-md-12">
+        <h2 class="text-center" style="margin-bottom:20px;">{{ $data['title'] }}</h2>
+    </div>
 </div>
 <div class="row">
     <div class="col-md-8 col-md-offset-1">

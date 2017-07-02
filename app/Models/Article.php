@@ -54,6 +54,8 @@ class Article extends Model
     public function edit($id, $data)
     {
         $data = array_only($data, $this->allowKeys);
+        // 替换标签中的英文逗号为中文
+        $data['tag'] = str_replace(',', '，', $data['tag']);
         $data['update_at'] = time();
         $result = self::where('id', $id)->update($data);
 
@@ -65,6 +67,11 @@ class Article extends Model
         $result = self::where('id', $id)->delete();
 
         return $result;
+    }
+
+    public function read($id)
+    {
+        return self::where('id', $id)->increment('read');
     }
 
     protected function _filterInfo(&$data)

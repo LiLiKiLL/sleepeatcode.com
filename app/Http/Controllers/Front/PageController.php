@@ -24,6 +24,7 @@ class PageController extends BaseController
     public function blogView($id)
     {
         $article = new Article();
+        $article->read($id);// 阅读量+1
         $result = $article->info($id);
         $data = ['data' => $result];
 

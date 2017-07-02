@@ -28,7 +28,7 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($data as $k => $article)
+            @foreach ($data['data'] as $k => $article)
             <tr>
               <td>{{ $k + 1 }}</td>
               <td>{{ $article['title'] }}</td>
