@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\BaseController;
-use Input, File;
+use Input, File, Log;
 
 class CommonController extends BaseController
 {
@@ -10,7 +10,7 @@ class CommonController extends BaseController
     public function uploadImage()
     {
         $rules = [
-            'image' => 'required',
+            'editormd-image-file' => 'required',
         ];
         $result = [
             'success' => 0,
@@ -18,7 +18,7 @@ class CommonController extends BaseController
             'url' => '',
         ];
         if (true === $this->_checkParams($rules)) {
-            $file = Input::file('image');
+            $file = Input::file('editormd-image-file');
             $ext = $file->guessExtension();
             $newFilename = uniqid('img_') . '.' . $ext;// 生成img_ + 13位字符的唯一ID
             $result = $file->move(storage_path('images'), $newFilename);

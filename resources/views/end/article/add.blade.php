@@ -56,7 +56,11 @@
             width   : "80%",
             height  : 640,
             syncScrolling : "single",
-            path    : "/editor.md/lib/"
+            path    : "/editor.md/lib/",
+            imageUpload : true,
+            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL : "{{ route('upload_image') }}",
+            saveHTMLToTextarea : true
         });
 
         /*
