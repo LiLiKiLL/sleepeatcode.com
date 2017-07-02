@@ -52,6 +52,12 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'End\Page'], function () {
 });
 
 /**
+ * 通用接口
+ */
+Route::post('upload/image', 'CommonController@uploadImage');
+Route::get('download/image/{filename}', 'CommonController@downloadImage');
+
+/**
  * 后台接口
  */
 Route::group(['prefix' => 'api', 'namespace' => 'End\Admin'], function () {
