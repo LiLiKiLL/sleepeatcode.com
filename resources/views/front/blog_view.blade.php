@@ -6,8 +6,8 @@
 @endsection
 
 @section('content')
-<div class="row full-width-row article-title">
-    <h2>{{ $data['title'] }}</h2>
+<div class="row full-width-row">
+    <h2 class="center-block">{{ $data['title'] }}</h2>
 </div>
 <div class="row">
     <div class="col-md-8 col-md-offset-1">

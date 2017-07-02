@@ -7,7 +7,7 @@
 
 @section('content')
 <div class="row full-width-row article-title">
-    <h2>Welcome</h2>
+    <h2 class="center-block">Welcome</h2>
 </div>
 <div class="row">
     <div class="col-md-8 col-md-offset-1">
