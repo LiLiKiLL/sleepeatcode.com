@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\End\Page;
+namespace App\Http\Controllers\End;
 
 use App\Http\Controllers\BaseController;
 use App\Models\Article;

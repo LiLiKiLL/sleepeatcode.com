@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `admin`(
     `nickname` varchar(64) NOT NULL DEFAULT '' COMMENT '昵称',
     `email` varchar(64) NOT NULL DEFAULT '' COMMENT '邮件',
     `password` char(64) NOT NULL DEFAULT '' COMMENT '密码',
-    `remember_token` char(16) NOT NULL DEFAULT '' COMMENT '记住我',
+    `remember_token` char(32) NOT NULL DEFAULT '' COMMENT '记住我',
     PRIMARY KEY (`id`)
 )ENGINE=InnoDB CHARSET=utf8 COMMENT '后台管理员表';
 

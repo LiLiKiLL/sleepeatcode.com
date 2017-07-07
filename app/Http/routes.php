@@ -30,10 +30,11 @@ Route::group(['namespace' => 'Front'], function() {
     Route::get('blog/tags', ['as' => 'blog_tags', 'uses' => 'PageController@blogTags']);
 });
 
+
 /**
  * 后台页面
  */
-Route::group(['prefix' => 'dashboard', 'namespace' => 'End\Page'], function () {
+Route::group(['prefix' => 'dashboard', 'namespace' => 'End'], function () {
     Route::get('/', 'IndexController@index');
     Route::get('register', ['as' => 'admin_reg', 'uses' => 'AuthController@register']);
     Route::get('login', ['as' => 'admin_login', 'uses' => 'AuthController@login']);
@@ -62,7 +63,7 @@ Route::get('download/image/{filename}', ['as' => 'download_image', 'uses' => 'Co
 /**
  * 后台接口
  */
-Route::group(['prefix' => 'api', 'namespace' => 'End\Admin'], function () {
+Route::group(['prefix' => 'api', 'namespace' => 'End'], function () {
     Route::post('admin/register', 'AdminController@register');
     Route::post('admin/login', 'AdminController@login');
 });

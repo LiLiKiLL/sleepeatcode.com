@@ -28,4 +28,21 @@ class Admin extends Model
 
         return self::where($params)->first();
     }
+
+    public function updateRememberToken($id, $rememberToken)
+    {
+        $data = [
+            'remember_token' => $rememberToken,
+        ];
+
+        return self::where('id', $id)->update($data);
+    }
+
+    public function getInfoByRememberToken($rememberToken)
+    {
+        $result = self::select('nickname')->where('remember_token', $rememberToken)->first();
+        $result = empty($result) ? array() : $result->toArray();
+
+        return $result;
+    }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\End\Admin;
+namespace App\Http\Controllers\End;
 
 use App\Http\Controllers\BaseController;
 use App\Services\ErrMapping;
@@ -48,6 +48,9 @@ class AdminController extends BaseController
                 $admin = new Admin();
                 $adminInfo = $admin->login($nickname, $password);
                 if ($adminInfo) {
+                    $rememberToken = md5($adminInfo['email'] . time());
+                    $admin->updateRememberToken($adminInfo['id'], $rememberToken);
+                    session(['remember_token' => $rememberToken]);
                     $this->_result = ['desc' => '欢迎你，' . $nickname . '。'];
                 } else {
                     $this->_errno = ErrMapping::ADMIN_AUTH_FAIL;
