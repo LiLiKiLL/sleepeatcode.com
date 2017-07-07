@@ -49,7 +49,7 @@
             }
         });
         var options = {
-            url: '/api/admin/register',
+            url: '/dashboard/register',
             type: 'post',
             dataType: 'json',
             success: registerResult

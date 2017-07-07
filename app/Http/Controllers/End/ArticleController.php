@@ -1,12 +1,12 @@
 <?php
 namespace App\Http\Controllers\End;
 
-use App\Http\Controllers\BaseController;
+use App\Http\Controllers\EndBaseController;
 use App\Models\Article;
 use Input, Request;
 use App\Services\ErrMapping;
 
-class ArticleController extends BaseController
+class ArticleController extends EndBaseController
 {
     protected $viewPrefix = 'end/article/';
 

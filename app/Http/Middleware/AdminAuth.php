@@ -1,17 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Middleware;
 
-use App\Http\Controllers\BaseController;
+use Closure;
 use App\Models\Admin;
-use Request;
 
-class EndBaseController extends BaseController
+class AdminAuth
 {
     public $isLogin;
     public $nickname;
 
-    public function __construct()
+    /**
+     * 返回请求过滤器
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
     {
         $this->isLogin = false;
         $this->nickname = '';
@@ -24,12 +30,10 @@ class EndBaseController extends BaseController
                 $this->isLogin = true;
             }
         }
-    }
-
-    public function checkLogin()
-    {
         if (!$this->isLogin) {
-            return view('end.auth.login');
+            return redirect(route('admin_login'));
         }
+
+        return $next($request);
     }
 }

@@ -16,4 +16,6 @@ class AuthController extends BaseController
     {
         return view($this->viewPrefix . 'login');
     }
+
+
 }

@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
-        <form action="/api/admin/login" role="form" method="post">
+        <form action="" role="form" method="post">
             <div class="form-group">
                 <label for="nickname">用户名：</label>
                 <input type="text" class="form-control" id="nickname" name="nickname" placeholder="请输入用户名">

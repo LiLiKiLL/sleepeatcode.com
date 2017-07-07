@@ -23,6 +23,7 @@
                             <li><a href="#">另一个分离的链接</a></li>
                         </ul>
                     </li>
+                    <li><a href="{{ route('admin_logout') }}">退出登录</a></li>
                 </ul>
             </div>
             </div>

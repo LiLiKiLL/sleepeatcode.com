@@ -36,8 +36,9 @@ Route::group(['namespace' => 'Front'], function() {
  */
 Route::group(['prefix' => 'dashboard', 'namespace' => 'End'], function () {
     Route::get('/', 'IndexController@index');
-    Route::get('register', ['as' => 'admin_reg', 'uses' => 'AuthController@register']);
-    Route::get('login', ['as' => 'admin_login', 'uses' => 'AuthController@login']);
+    Route::match(['get', 'post'], 'register', ['as' => 'admin_reg', 'uses' => 'AdminController@register']);
+    Route::match(['get', 'post'], 'login', ['as' => 'admin_login', 'uses' => 'AdminController@login']);
+    Route::get('logout', ['as' => 'admin_logout', 'uses' => 'AdminController@logout']);
 
     // 书签管理
     Route::group(['prefix' => 'bookmark'], function () {
@@ -45,7 +46,7 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'End'], function () {
     });
 
     // 博客文章管理
-    Route::group(['prefix' => 'article'], function () {
+    Route::group(['prefix' => 'article', 'middleware' => 'admin.auth'], function () {
         Route::match(['get', 'post'], 'add', ['as' => 'article_add', 'uses' => 'ArticleController@add']);
         Route::get('list', ['as' => 'article_list', 'uses' => 'ArticleController@getList']);
         Route::get('preview/{id}', ['as' => 'article_preview', 'uses' => 'ArticleController@preview']);
