@@ -38,7 +38,9 @@
                     </span>
                 </div>
                 <div class="article-preview" id="article-{{ $article['id'] }}">
-                    <textarea id="append-test">{{ $article['abstract'] }}</textarea>
+                    <br />
+                    <p>{{ $article['abstract'] }}</p>
+                    <!-- <textarea id="append-test">{{ $article['abstract'] }}</textarea> -->
                 </div>
             </div>
             <hr>
@@ -73,18 +75,18 @@
 <script src="/editor.md/editormd.js"></script>
 <script type="text/javascript">
     $(function() {
-        var articlePreviews;
+        // var articlePreviews;
 
-        $(".article-preview").each(function(index, item) {
-            editormd.markdownToHTML(item.id, {
-                htmlDecode      : "style,script,iframe",  // you can filter tags decode
-                emoji           : true,
-                taskList        : true,
-                tex             : true,  // 默认不解析
-                flowChart       : true,  // 默认不解析
-                sequenceDiagram : true,  // 默认不解析
-            });
-        });
+        // $(".article-preview").each(function(index, item) {
+        //     editormd.markdownToHTML(item.id, {
+        //         htmlDecode      : "style,script,iframe",  // you can filter tags decode
+        //         emoji           : true,
+        //         taskList        : true,
+        //         tex             : true,  // 默认不解析
+        //         flowChart       : true,  // 默认不解析
+        //         sequenceDiagram : true,  // 默认不解析
+        //     });
+        // });
     });
 </script>
 @endsection
