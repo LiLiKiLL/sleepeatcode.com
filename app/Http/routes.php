@@ -53,6 +53,13 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'End'], function () {
         Route::match(['get', 'post'], 'edit/{id}', ['as' => 'article_edit', 'uses' => 'ArticleController@edit']);
         Route::get('delete/{id}', ['as' => 'article_delete', 'uses' => 'ArticleController@delete']);
     });
+
+    // 格言管理
+    Route::group(['prefix' => 'motto', 'middleware' => 'admin.auth'], function () {
+        Route::match(['get', 'post'], 'add', ['as' => 'motto_add', 'uses' => 'MottoController@add']);
+        Route::get('list', ['as' => 'motto_list', 'uses' => 'MottoController@getList']);
+        Route::match(['get', 'post'], 'edit/{id}', ['as' => 'motto_edit', 'uses' => 'MottoController@edit']);
+    });
 });
 
 /**

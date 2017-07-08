@@ -10,6 +10,8 @@ CREATE TABLE IF NOT EXISTS `admin`(
     `email` varchar(64) NOT NULL DEFAULT '' COMMENT '邮件',
     `password` char(64) NOT NULL DEFAULT '' COMMENT '密码',
     `remember_token` char(32) NOT NULL DEFAULT '' COMMENT '记住我',
+    `create_at` int(11) NOT NULL DEFAULT 0 COMMENT '创建时间',
+    `login_at` int(11) NOT NULL DEFAULT 0 COMMENT '上次登录时间',
     PRIMARY KEY (`id`)
 )ENGINE=InnoDB CHARSET=utf8 COMMENT '后台管理员表';
 
@@ -49,3 +51,13 @@ CREATE TABLE IF NOT EXISTS `article` (
     PRIMARY KEY (`id`),
     INDEX `idx_title` (`title`)
 )ENGINE=InnoDB CHARSET=utf8 COMMENT '文章表';
+
+-- 创建格言表
+CREATE TABLE IF NOT EXISTS `motto` (
+    `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增ID',
+    `content` varchar(512) NOT NULL COMMENT '格言内容',
+    `author` varchar(64) NOT NULL COMMENT '作者/来源',
+    `create_at` int(11) NOT NULL DEFAULT 0 COMMENT '创建时间',
+    `update_at` int(11) NOT NULL DEFAULT 0 COMMENT '更新时间',
+    PRIMARY KEY (`id`)
+)ENGINE=InnoDB CHARSET=utf8 COMMENT '格言表';

@@ -20,6 +20,15 @@
                         </ul>
                     </li>
                 </ul>
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">格言管理 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('motto_add') }}">添加格言</a></li>
+                            <li><a href="{{ route('motto_list') }}">格言列表</a></li>
+                        </ul>
+                    </li>
+                </ul>
                     @if(isset($nickname))
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
