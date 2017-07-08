@@ -3,10 +3,21 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\BaseController;
 use App\Models\Article;
+use App\Models\Motto;
 use Input;
 
 class PageController extends BaseController
 {
+    public function __construct()
+    {
+        $article = new Article();
+        $tags = $article->getAllTags();
+        view()->share('tags', $tags);
+
+        $motto = new Motto();
+        $mottoInfo = $motto->random();
+        view()->share('motto', $mottoInfo);
+    }
 
     public function home()
     {
@@ -21,8 +32,6 @@ class PageController extends BaseController
         $article = new Article();
         $result = $article->getList($conds, $page, $pageSize);
         $data = ['articles' => $result];
-        $tags = $article->getAllTags();
-        $data['tags'] = $tags;
 
         return view('front/blog', $data);
     }
@@ -33,8 +42,6 @@ class PageController extends BaseController
         $article->read($id);// 阅读量+1
         $result = $article->info($id);
         $data = ['article' => $result];
-        $tags = $article->getAllTags();
-        $data['tags'] = $tags;
 
         return view('front/blog_view', $data);
     }
@@ -55,16 +62,7 @@ class PageController extends BaseController
         $article = new Article();
         $result = $article->getByTag($tag, $page, $pageSize);
         $data = ['articles' => $result];
-        $tags = $article->getAllTags();
-        $data['tags'] = $tags;
 
         return view('front/blog', $data);
-    }
-
-    public function blogTags()
-    {
-        $article = new Article();
-        $tags = $article->getAllTags();
-
     }
 }

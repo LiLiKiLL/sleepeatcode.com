@@ -68,7 +68,7 @@ class Motto extends Model
     {
         $total = self::count();
         $rand = ceil(rand(1, $total));
-        $result = self::where('id', '<=', $rand)->first();
+        $result = self::where('id', '<=', $rand)->orderBy('create_at', 'desc')->first();
         $result = empty($result) ? array() : $result->toArray();
         $this->_filterInfo($result);
 

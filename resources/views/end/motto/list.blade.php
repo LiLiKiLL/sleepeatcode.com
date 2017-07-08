@@ -27,7 +27,6 @@
               <td>{{ $motto['update_at'] }}</td>
               <td>
                   <a href="{{ route('motto_edit', ['id' => $motto['id']]) }}">编辑</a>
-                  <!-- <a href="{{ route('motto_delete', ['id' => $motto['id']]) }}">删除</a> -->
               </td>
             </tr>
             @endforeach
