@@ -10,8 +10,8 @@
     </div>
     <div class="col-md-3 pull-right col-md-pull-1" style="padding-top:30px;">
         <blockquote>
-            {{ $motto['content'] }}
-          <small> <cite title="Source Title">{{ $motto['author'] }}</cite></small>
+            {{ isset($motto['content']) ? $motto['content'] : "如果没有键盘，我的人生就彻底空虚了。" }}
+          <small> <cite title="Source Title">{{ isset($motto['author']) ? $motto['author'] : "《黑客军团》" }}</cite></small>
         </blockquote>
     </div>
 </div>
