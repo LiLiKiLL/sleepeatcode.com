@@ -1,9 +1,9 @@
 <?php
 namespace App\Http\Controllers\End;
 
-use App\Http\Controllers\BaseController;
+use App\Http\Controllers\EndBaseController;
 
-class IndexController extends BaseController
+class IndexController extends EndBaseController
 {
     public function index()
     {

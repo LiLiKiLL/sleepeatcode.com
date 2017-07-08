@@ -1,5 +1,5 @@
 @extends('end.layout')
-@section('title', '后台管理员注册')
+@section('title', '后台管理员登录')
 @section('content')
 <div class="row">
     <div class="col-md-12">

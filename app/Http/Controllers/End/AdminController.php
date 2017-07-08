@@ -60,7 +60,8 @@ class AdminController extends BaseController
                         $rememberToken = md5($adminInfo['email'] . time());
                         $admin->updateRememberToken($adminInfo['id'], $rememberToken);
                         session(['remember_token' => $rememberToken]);
-                        $this->_result = ['desc' => '欢迎你，' . $nickname . '。'];
+                        // $this->_result = ['desc' => '欢迎你，' . $nickname . '。'];
+                        return redirect(route('end_index'));
                     } else {
                         $this->_errno = ErrMapping::ADMIN_AUTH_FAIL;
                     }

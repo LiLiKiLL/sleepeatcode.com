@@ -22,6 +22,7 @@ class EndBaseController extends BaseController
             if ($adminInfo) {
                 $this->nickname = $adminInfo['nickname'];
                 $this->isLogin = true;
+                view()->share('nickname', $this->nickname);
             }
         }
     }

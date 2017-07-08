@@ -35,7 +35,7 @@ Route::group(['namespace' => 'Front'], function() {
  * 后台页面
  */
 Route::group(['prefix' => 'dashboard', 'namespace' => 'End'], function () {
-    Route::get('/', 'IndexController@index');
+    Route::get('/', ['as' => 'end_index', 'uses' => 'IndexController@index']);
     Route::match(['get', 'post'], 'register', ['as' => 'admin_reg', 'uses' => 'AdminController@register']);
     Route::match(['get', 'post'], 'login', ['as' => 'admin_login', 'uses' => 'AdminController@login']);
     Route::get('logout', ['as' => 'admin_logout', 'uses' => 'AdminController@logout']);
