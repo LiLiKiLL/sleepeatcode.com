@@ -29,6 +29,15 @@
                         </ul>
                     </li>
                 </ul>
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">书签管理 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('bookmark_add') }}">添加书签</a></li>
+                            <li><a href="{{ route('bookmark_list') }}">书签列表</a></li>
+                        </ul>
+                    </li>
+                </ul>
                     @if(isset($nickname))
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">

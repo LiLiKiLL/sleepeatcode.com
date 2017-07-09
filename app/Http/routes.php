@@ -40,11 +40,6 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'End'], function () {
     Route::match(['get', 'post'], 'login', ['as' => 'admin_login', 'uses' => 'AdminController@login']);
     Route::get('logout', ['as' => 'admin_logout', 'uses' => 'AdminController@logout']);
 
-    // 书签管理
-    Route::group(['prefix' => 'bookmark'], function () {
-        Route::get('add', 'BookmarkController@add');
-    });
-
     // 博客文章管理
     Route::group(['prefix' => 'article', 'middleware' => 'admin.auth'], function () {
         Route::match(['get', 'post'], 'add', ['as' => 'article_add', 'uses' => 'ArticleController@add']);
@@ -59,6 +54,12 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'End'], function () {
         Route::match(['get', 'post'], 'add', ['as' => 'motto_add', 'uses' => 'MottoController@add']);
         Route::get('list', ['as' => 'motto_list', 'uses' => 'MottoController@getList']);
         Route::match(['get', 'post'], 'edit/{id}', ['as' => 'motto_edit', 'uses' => 'MottoController@edit']);
+    });
+
+    // 书签管理
+    Route::group(['prefix' => 'bookmark', 'middleware' => 'admin.auth'], function () {
+        Route::get('add', ['as' => 'bookmark_add', 'uses' => 'BookmarkController@add']);
+        Route::get('list', ['as' => 'bookmark_list', 'uses' => 'BookmarkController@getList']);
     });
 });
 

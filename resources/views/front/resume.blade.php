@@ -106,6 +106,7 @@
                 <li>邮箱：<a href="mailto:chrisx0909@gmail.com">chrisx0909@gmail.com</a></li>
             </ul>
     </div>
-    <p>我是陈旭，一只知道编程的猴子。我的格言是“吃饭睡觉写代码”，嘎嘎。</p>
+    <p>Someone who loves to program and enjoys being clever about it.</p>
+    <!-- <p>我是陈旭，一只知道编程的猴子。我的格言是“吃饭睡觉写代码”，嘎嘎。</p> -->
 </div>
 @endsection

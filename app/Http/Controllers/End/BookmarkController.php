@@ -1,9 +1,9 @@
 <?php
 namespace App\Http\Controllers\End;
 
-use App\Http\Controllers\BaseController;
+use App\Http\Controllers\EndBaseController;
 
-class AuthController extends BaseController
+class BookmarkController extends EndBaseController
 {
     protected $viewPrefix = 'end/bookmark/';
 
@@ -12,7 +12,7 @@ class AuthController extends BaseController
         return view($this->viewPrefix . 'add');
     }
 
-    public function list()
+    public function getList()
     {
         return view($this->viewPrefix . 'list');
     }

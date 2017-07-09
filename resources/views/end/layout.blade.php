@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- <div class="container-fluid"> -->
-    <div class="container">
+    <div class="container-fluid">
         @include('end.header')
         @include('end.alert')
         @yield('content')
