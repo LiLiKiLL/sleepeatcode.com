@@ -26,5 +26,6 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('inspire')
                  ->hourly();
+        $schedule->command('db:backup --database=mysql --destination=dropbox --destinationPath=`date +\%Y/%Y-%m-%d-%H-%M-%S` --compression=gzip')->weekly()->mondays()->at('08:00');
     }
 }

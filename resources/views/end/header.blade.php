@@ -38,6 +38,9 @@
                         </ul>
                     </li>
                 </ul>
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="/dashboard/mysqldump">备份数据</a></li>
+                </ul>
                     @if(isset($nickname))
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">

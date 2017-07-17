@@ -36,6 +36,7 @@ Route::group(['namespace' => 'Front'], function() {
  */
 Route::group(['prefix' => 'dashboard', 'namespace' => 'End'], function () {
     Route::get('/', ['as' => 'end_index', 'uses' => 'IndexController@index']);
+    // 登录/注册管理
     Route::match(['get', 'post'], 'register', ['as' => 'admin_reg', 'uses' => 'AdminController@register']);
     Route::match(['get', 'post'], 'login', ['as' => 'admin_login', 'uses' => 'AdminController@login']);
     Route::get('logout', ['as' => 'admin_logout', 'uses' => 'AdminController@logout']);
@@ -61,6 +62,9 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'End'], function () {
         Route::get('add', ['as' => 'bookmark_add', 'uses' => 'BookmarkController@add']);
         Route::get('list', ['as' => 'bookmark_list', 'uses' => 'BookmarkController@getList']);
     });
+
+    // 备份MySQL数据库
+    Route::get('mysqldump', 'BackupController@mysqldump');
 });
 
 /**
