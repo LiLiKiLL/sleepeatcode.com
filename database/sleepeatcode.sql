@@ -18,11 +18,16 @@ CREATE TABLE IF NOT EXISTS `admin`(
 -- 书签文件夹表
 CREATE TABLE IF NOT EXISTS `bookmark_dir` (
     `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增ID',
-    `name` varchar(16) NOT NULL DEFAULT '' COMMENT '文件夹名称',
-    `level` tinyint(4) unsigned NOT NULL DEFAULT 1 COMMENT '文件夹级别',
+    `name` varchar(64) NOT NULL DEFAULT '' COMMENT '文件夹名称',
+    `level` tinyint(4) unsigned NOT NULL DEFAULT 1 COMMENT '文件夹级别，1-一级，2-二级',
+    `pid` int(11) unsigned NOT NULL COMMENT '父级文件夹ID',
+    `weight` int(11) unsigned NOT NULL DEFAULT 100 COMMENT '排序权重，越小越前',
     `status` tinyint(4) unsigned NOT NULL DEFAULT 1 COMMENT '状态：1-正常，2-隐藏（删除）',
+    `create_at` int(11) NOT NULL DEFAULT 0 COMMENT '创建时间',
+    `update_at` int(11) NOT NULL DEFAULT 0 COMMENT '更新时间',
     PRIMARY KEY (`id`),
-    INDEX `idx_name` (`name`)
+    INDEX `idx_name` (`name`),
+    INDEX `idx_pid` (`pid`)
 )ENGINE=InnoDB CHARSET=utf8 COMMENT '书签文件夹表';
 
 -- 书签表
@@ -34,6 +39,8 @@ CREATE TABLE IF NOT EXISTS `bookmark` (
     `icon` varchar(256) NOT NULL DEFAULT '' COMMENT '网站icon',
     `weight` int(11) unsigned NOT NULL DEFAULT 100 COMMENT '排序',
     `status` tinyint(4) unsigned NOT NULL DEFAULT 1 COMMENT '状态：1-正常，2-隐藏（删除）',
+    `create_at` int(11) NOT NULL DEFAULT 0 COMMENT '创建时间',
+    `update_at` int(11) NOT NULL DEFAULT 0 COMMENT '更新时间',
     PRIMARY KEY (`id`),
     INDEX `idx_name` (`name`)
 )ENGINE=InnoDB CHARSET=utf8 COMMENT '书签分类表';
