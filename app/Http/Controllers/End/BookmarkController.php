@@ -68,6 +68,15 @@ class BookmarkController extends EndBaseController
 
     public function getList()
     {
-        return view($this->viewPrefix . 'list');
+        $page = Input::get('page', 1);
+        $pageSize = Input::get('page_size', 10);
+        $bookmark = new Bookmark();
+        $bookmarkList = $bookmark->getList(array(), $page, $pageSize);
+        $data = [
+            'bookmark_list' => $bookmarkList,
+        ];
+
+        return view($this->viewPrefix . 'list', $data);
     }
+
 }

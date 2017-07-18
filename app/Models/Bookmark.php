@@ -3,6 +3,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Schema;
+use App\Services\Lib;
 
 class Bookmark extends Model
 {
@@ -27,5 +28,30 @@ class Bookmark extends Model
         self::where('id', $id)->update(['weight' => $id]);
 
         return $id;
+    }
+
+    public function getList($conds = array(), $page = 1, $pageSize = 10)
+    {
+        $result = self::select('bookmark.*', 'bookmark_dir.name as dir_name');
+        $result->orderBy('create_at', 'desc')->leftJoin('bookmark_dir', 'bookmark.dir_id', '=', 'bookmark_dir.id');
+        $pagination = $result->paginate($pageSize, '*', 'page', $page)->toArray();
+        if ($pagination['data']) {
+            foreach ($pagination['data'] as $k => &$v) {
+                $this->_filterInfo($v);
+            }
+        }
+
+        return array(
+            'total' => $pagination['total'],
+            'total_page' => $pagination['last_page'],
+            'page' => $pagination['current_page'],
+            'page_size' => $pageSize,
+            'data' => $pagination['data']
+        );
+    }
+
+    protected function _filterInfo(&$data)
+    {
+        Lib::timestampsFormat($data, ['create_at', 'update_at'], 'Y-m-d H:i:s');
     }
 }
