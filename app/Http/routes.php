@@ -62,8 +62,8 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'End'], function () {
         Route::match(['get', 'post'], 'dir/add', ['as' => 'bookmark_dir_add', 'uses' => 'BookmarkController@addDir']);
         Route::match(['get', 'post'], 'add', ['as' => 'bookmark_add', 'uses' => 'BookmarkController@add']);
         Route::get('list', ['as' => 'bookmark_list', 'uses' => 'BookmarkController@getList']);
-        Route::match(['get', 'post'], 'edit', ['as' => 'bookmark_edit', 'uses' => 'BookmarkController@edit']);
-        Route::get('delete', ['as' => 'bookmark_delete', 'uses' => 'BookmarkController@delete']);
+        Route::match(['get', 'post'], 'edit/{id}', ['as' => 'bookmark_edit', 'uses' => 'BookmarkController@edit']);
+        Route::get('delete/{id}', ['as' => 'bookmark_delete', 'uses' => 'BookmarkController@del']);
     });
 
     // 备份MySQL数据库

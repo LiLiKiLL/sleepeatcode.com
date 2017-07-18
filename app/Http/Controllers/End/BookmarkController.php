@@ -79,4 +79,42 @@ class BookmarkController extends EndBaseController
         return view($this->viewPrefix . 'list', $data);
     }
 
+    public function del($id)
+    {
+        $bookmark = new Bookmark();
+        $bookmark->del($id);
+
+        return redirect(route('bookmark_list'));
+    }
+
+    public function edit($id)
+    {
+        $bookmark = new Bookmark();
+        $bookmarkdir = new BookmarkDir();
+        $dirList = $bookmarkdir->getList();
+        $bookmarkInfo = $bookmark->info($id);
+        if (Request::isMethod('get')) {
+            $data = [
+                'dir_list' => $dirList,
+                'bookmark_info' => $bookmarkInfo,
+            ];
+
+            return view($this->viewPrefix . 'edit', $data);
+        } else {
+            $rules = [
+                'dir_id' => 'required',
+                'name' => 'required',
+                'url' => 'required',
+                'desc' => 'string',
+            ];
+            if (true === $this->_checkParams($rules)) {
+                $params = Input::all();
+                $bookmark->edit($id, $params);
+
+                return redirect(route('bookmark_list'));
+            }
+
+            return $this->_jsonOutput();
+        }
+    }
 }

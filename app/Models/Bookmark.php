@@ -33,7 +33,7 @@ class Bookmark extends Model
     public function getList($conds = array(), $page = 1, $pageSize = 10)
     {
         $result = self::select('bookmark.*', 'bookmark_dir.name as dir_name');
-        $result->orderBy('create_at', 'desc')->leftJoin('bookmark_dir', 'bookmark.dir_id', '=', 'bookmark_dir.id');
+        $result->where('bookmark.status', self::STATUS_NORMAL)->orderBy('create_at', 'desc')->leftJoin('bookmark_dir', 'bookmark.dir_id', '=', 'bookmark_dir.id');
         $pagination = $result->paginate($pageSize, '*', 'page', $page)->toArray();
         if ($pagination['data']) {
             foreach ($pagination['data'] as $k => &$v) {
@@ -48,6 +48,34 @@ class Bookmark extends Model
             'page_size' => $pageSize,
             'data' => $pagination['data']
         );
+    }
+
+    public function del($id)
+    {
+        $data = [
+            'status' => self::STATUS_DELETED,
+            'update_at' => time(),
+        ];
+
+        return self::where('id', $id)->update($data);
+    }
+
+    public function info($id)
+    {
+        $result = self::where('id', $id)->first();
+        $result = empty($result) ? array() : $result->toArray();
+        $this->_filterInfo($result);
+
+        return $result;
+    }
+
+    public function edit($id, $data)
+    {
+        $data = array_only($data, ['dir_id', 'name', 'url', 'desc', 'icon']);
+        $data['update_at'] = time();
+        $result = self::where('id', $id)->update($data);
+
+        return $result;
     }
 
     protected function _filterInfo(&$data)
