@@ -1,7 +1,6 @@
 @extends('end.layout')
 
-@section('title', '添加书签')
-
+@section('title', '添加书签文件夹')
 
 @section('content')
 <div class="row">

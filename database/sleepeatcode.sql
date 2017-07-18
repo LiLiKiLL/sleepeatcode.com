@@ -34,16 +34,18 @@ CREATE TABLE IF NOT EXISTS `bookmark_dir` (
 CREATE TABLE IF NOT EXISTS `bookmark` (
     `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增ID',
     `dir_id` int(11) unsigned NOT NULL COMMENT '书签文件夹ID',
-    `name` varchar(128) NOT NULL DEFAULT '' COMMENT '文件夹名称',
+    `name` varchar(64) NOT NULL DEFAULT '' COMMENT '文件夹名称',
     `url` varchar(256) NOT NULL DEFAULT '' COMMENT '链接地址',
+    `desc` varchar(512) NOT NULL DEFAULT '' COMMENT '网站描述',
     `icon` varchar(256) NOT NULL DEFAULT '' COMMENT '网站icon',
     `weight` int(11) unsigned NOT NULL DEFAULT 100 COMMENT '排序',
     `status` tinyint(4) unsigned NOT NULL DEFAULT 1 COMMENT '状态：1-正常，2-隐藏（删除）',
     `create_at` int(11) NOT NULL DEFAULT 0 COMMENT '创建时间',
     `update_at` int(11) NOT NULL DEFAULT 0 COMMENT '更新时间',
     PRIMARY KEY (`id`),
+    INDEX `idx_dir_id` (`dir_id`),
     INDEX `idx_name` (`name`)
-)ENGINE=InnoDB CHARSET=utf8 COMMENT '书签分类表';
+)ENGINE=InnoDB CHARSET=utf8 COMMENT '书签表';
 
 -- 创建文章表
 CREATE TABLE IF NOT EXISTS `article` (

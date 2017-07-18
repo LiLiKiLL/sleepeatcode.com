@@ -43,7 +43,7 @@ class BookmarkDir extends Model
         return $id;
     }
 
-    public function firstLevelList()
+    public function getFirstLevelList()
     {
         $where = [
             'pid' => self::ROOT_DIR_PID,
@@ -57,6 +57,32 @@ class BookmarkDir extends Model
         }
 
         return $list;
+    }
+
+    public function getChildren($pid)
+    {
+        $where = [
+            'pid' => $pid,
+            'status' => self::STATUS_NORMAL,
+        ];
+        $children = self::where($where)->orderBy('weight', 'asc')->get();
+        $children = empty($children) ? array() : $children->toArray();
+        foreach ($children as $k => &$v) {
+            $this->_filterInfo($v);
+        }
+
+        return $children;
+    }
+
+    public function getList()
+    {
+        $result = $this->getFirstLevelList();
+        foreach ($result as $k => &$v) {
+            $children = $this->getChildren($v['id']);
+            $v['children'] = $children;
+        }
+
+        return $result;
     }
 
     protected function _filterInfo(&$data)

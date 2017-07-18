@@ -60,7 +60,7 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'End'], function () {
     // 书签管理
     Route::group(['prefix' => 'bookmark', 'middleware' => 'admin.auth'], function () {
         Route::match(['get', 'post'], 'dir/add', ['as' => 'bookmark_dir_add', 'uses' => 'BookmarkController@addDir']);
-        Route::get('add', ['as' => 'bookmark_add', 'uses' => 'BookmarkController@add']);
+        Route::match(['get', 'post'], 'add', ['as' => 'bookmark_add', 'uses' => 'BookmarkController@add']);
         Route::get('list', ['as' => 'bookmark_list', 'uses' => 'BookmarkController@getList']);
     });
 
