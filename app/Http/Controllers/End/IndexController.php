@@ -11,6 +11,6 @@ class IndexController extends EndBaseController
             return view('end.index');
         }
 
-        return view('end.login');
+        return redirect(route('admin_login'));
     }
 }
