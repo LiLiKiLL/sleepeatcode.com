@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title')-sleepeatcode.com dashboard</title>
+    <title>@yield('title') 吃饭睡觉写代码-Dashboard</title>
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/dashboard.css" rel="stylesheet">
@@ -11,7 +11,7 @@
 <body>
     @include('end.header')
     @include('end.alert')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 @include('end.sidebar')

@@ -39,6 +39,7 @@
             <div class="form-group">
                 <div class="col-md-10 col-md-offset-2">
                     <button type="submit" class="btn btn-primary">确认修改</button>
+                    <button type="button" class="btn btn-default" onclick="javascript:history.back();">取消</button>
                 </div>
             </div>
         </form>

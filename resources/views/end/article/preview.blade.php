@@ -14,6 +14,7 @@
 @endsection
 
 @section('content')
+<button type="button" class="btn btn-default" onclick="javascript:history.back();">&lt;&lt;返回上一页</button>
 <div class="row">
     <div class="col-md-12">
         <h1>{{ $data['title'] }}</h1>
@@ -23,6 +24,7 @@
         </div>
     </div>
 </div>
+<button type="button" class="btn btn-default" onclick="javascript:history.back();">&lt;&lt;返回上一页</button>
 @endsection
 
 @section('js')

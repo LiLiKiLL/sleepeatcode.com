@@ -1,4 +1,7 @@
 @extends('common.front_layout')
+
+@section('title', 'About me-')
+
 @section('css')
 <style>
     .resume {
