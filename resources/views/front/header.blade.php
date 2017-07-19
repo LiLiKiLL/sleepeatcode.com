@@ -13,10 +13,18 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ route('home') }}">Home</a></li>
-                        <li><a href="{{ route('blog') }}">Blog</a></li>
-                        <li><a href="{{ route('bookmark') }}">Bookmark</a></li>
-                        <li><a href="{{ route('resume') }}">About</a></li>
+                        <li>
+                            <a href="{{ route('home') }}">Home</a>
+                        </li>
+                        <li class="<?php if ($url == route('blog')) { echo 'active'; } ?>">
+                            <a href="{{ route('blog') }}">Blog</a>
+                        </li>
+                        <li class="<?php if ($url == route('bookmark')) { echo 'active'; } ?>">
+                            <a href="{{ route('bookmark') }}">Bookmark</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('resume') }}">About</a>
+                        </li>
                     </ul>
                 </div>
             </div>

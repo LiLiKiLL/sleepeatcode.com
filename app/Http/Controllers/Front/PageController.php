@@ -5,7 +5,7 @@ use App\Http\Controllers\BaseController;
 use App\Models\Article;
 use App\Models\Motto;
 use App\Models\Bookmark;
-use Input;
+use Input, Request;
 
 class PageController extends BaseController
 {
@@ -18,6 +18,8 @@ class PageController extends BaseController
         $motto = new Motto();
         $mottoInfo = $motto->random();
         view()->share('motto', $mottoInfo);
+
+        view()->share('url', Request::url());
     }
 
     public function home()
