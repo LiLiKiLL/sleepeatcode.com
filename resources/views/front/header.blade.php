@@ -20,9 +20,9 @@
                         <li class="<?php if ($url == route('blog')) { echo 'active'; } ?>">
                             <a href="{{ route('blog') }}">Blog</a>
                         </li>
-                        <li class="<?php if ($url == route('bookmark')) { echo 'active'; } ?>">
+                        <!-- <li class="<?php if ($url == route('bookmark')) { echo 'active'; } ?>">
                             <a href="{{ route('bookmark') }}">Bookmark</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="{{ route('resume') }}">About</a>
                         </li>
