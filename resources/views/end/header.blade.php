@@ -10,6 +10,10 @@
             <a class="navbar-brand" href="{{ route('end_index') }}">SleepEatCode</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="{{ route('end_index') }}">控制台</a></li>
+                <li><a href="{{ route('home') }}" target="_blank">首页</a></li>
+            </ul>
         @if(isset($nickname))
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
