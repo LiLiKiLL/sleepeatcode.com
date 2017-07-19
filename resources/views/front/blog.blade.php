@@ -8,8 +8,8 @@
 @endsection
 
 @section('content')
-<div class="row full-width-row article-title">
-    <div class="col-md-12">
+<div class="row article-title">
+    <div>
         <h2 class="text-center" style="margin-bottom:20px;">Welcome</h2>
     </div>
 </div>

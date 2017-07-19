@@ -2,18 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title')-sleepeatcode.com</title>
+    <title>@yield('title')-sleepeatcode.com dashboard</title>
     <link rel="shortcut icon" href="/favicon.ico">
-    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/dashboard.css" rel="stylesheet">
     @yield('css')
 </head>
 <body>
-    <!-- <div class="container-fluid"> -->
-    <div class="container-fluid">
-        @include('end.header')
-        @include('end.alert')
-        @yield('content')
+    @include('end.header')
+    @include('end.alert')
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                @include('end.sidebar')
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                @yield('content')
+            </div>
+        </div>
     </div>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>

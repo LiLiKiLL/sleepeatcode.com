@@ -79,6 +79,7 @@ class AdminController extends BaseController
     public function logout()
     {
         Request::session()->forget('remember_token');
-        return view($this->viewPrefix . 'login');
+
+        return redirect(route('admin_login'));
     }
 }

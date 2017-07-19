@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom:0px;">
     <div class="container-fluid">
         <div class="row">
@@ -31,4 +32,5 @@
         </div>
     </div>
 </nav>
+
 <div style="padding-top:50px;"></div>

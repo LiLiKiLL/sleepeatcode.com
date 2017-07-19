@@ -14,4 +14,4 @@
           <small> <cite title="Source Title">{{ isset($motto['author']) ? $motto['author'] : "《黑客军团》" }}</cite></small>
         </blockquote>
     </div>
-</div>
+</div><!-- /.footer -->

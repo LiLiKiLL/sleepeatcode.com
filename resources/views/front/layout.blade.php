@@ -19,6 +19,7 @@
         @include('front.footer')
     </div><!-- /.container -->
 
+
     <a id="back-to-top" href="javascript:void(0)" class="btn btn-primary btn-lg back-to-top" role="button" title="返回顶部" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 
 
