@@ -7,6 +7,10 @@ class IndexController extends EndBaseController
 {
     public function index()
     {
-        return view('end.index');
+        if ($this->isLogin) {
+            return view('end.index');
+        }
+
+        return view('end.login');
     }
 }
