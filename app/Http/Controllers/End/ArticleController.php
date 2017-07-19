@@ -14,7 +14,7 @@ class ArticleController extends EndBaseController
     {
         if (Request::isMethod('post')) {
             $rules = [
-                'title' => 'required|string|max:20',
+                'title' => 'required|string|max:32',
                 'abstract' => 'string|max:54',
                 'tag' => 'string|max:128',
                 'content' => 'required',
@@ -25,6 +25,8 @@ class ArticleController extends EndBaseController
                 $id = $article->add($params);
                 return redirect(route('article_list'));
             }
+
+            return $this->_jsonOutput();
         } else {
             return view($this->viewPrefix . 'add');
         }
