@@ -14,7 +14,7 @@ class ArticleController extends EndBaseController
     {
         if (Request::isMethod('post')) {
             $rules = [
-                'title' => 'required|string|max:32',
+                'title' => 'required|string|max:64',
                 'abstract' => 'string|max:54',
                 'tag' => 'string|max:128',
                 'content' => 'required',
