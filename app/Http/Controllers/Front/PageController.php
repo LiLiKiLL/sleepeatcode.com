@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\BaseController;
 use App\Models\Article;
 use App\Models\Motto;
+use App\Models\Bookmark;
 use Input;
 
 class PageController extends BaseController
@@ -64,5 +65,16 @@ class PageController extends BaseController
         $data = ['articles' => $result];
 
         return view('front/blog', $data);
+    }
+
+    public function bookmark()
+    {
+        $bookmark = new Bookmark();
+        $dirBookmarkList = $bookmark->getDirAndBookmark();
+        $data = [
+            'dir_bookmark_list' => $dirBookmarkList,
+        ];
+
+        return view('front/bookmark', $data);
     }
 }

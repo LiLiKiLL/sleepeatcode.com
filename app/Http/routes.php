@@ -28,6 +28,7 @@ Route::group(['namespace' => 'Front'], function() {
     Route::get('resume', ['as' => 'resume', 'uses' => 'PageController@resume']);
     Route::get('blog/tag/{tag}', ['as' => 'blog_tag', 'uses' => 'PageController@blogTag']);
     Route::get('blog/tags', ['as' => 'blog_tags', 'uses' => 'PageController@blogTags']);
+    Route::get('bookmark', ['as' => 'bookmark', 'uses' => 'PageController@bookmark']);
 });
 
 
@@ -82,10 +83,6 @@ Route::get('download/image/{filename}', ['as' => 'download_image', 'uses' => 'Co
 Route::group(['prefix' => 'api', 'namespace' => 'End'], function () {
     Route::post('admin/register', 'AdminController@register');
     Route::post('admin/login', 'AdminController@login');
-});
-
-Route::group(['prefix' => 'api/bookmark', 'namespace' => 'Bookmark'], function() {
-    Route::post('addDir', 'BookmarkController@addDir');
 });
 
 Route::group(['prefix' => 'test'], function () {

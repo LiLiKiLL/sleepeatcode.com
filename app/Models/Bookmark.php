@@ -4,6 +4,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Schema;
 use App\Services\Lib;
+use App\Models\BookmarkDir;
 
 class Bookmark extends Model
 {
@@ -76,6 +77,35 @@ class Bookmark extends Model
         $result = self::where('id', $id)->update($data);
 
         return $result;
+    }
+
+    public function getListByDir($dirId)
+    {
+        $where = [
+            'status' => self::STATUS_NORMAL,
+            'dir_id' => $dirId,
+        ];
+        $result = self::where($where)->orderBy('weight', 'asc')->orderBy('create_at', 'asc')->get();
+        $result = empty($result) ? array() : $result->toArray();
+        foreach ($result as $k => &$v) {
+            $this->_filterInfo($v);
+        }
+
+        return $result;
+    }
+
+    public function getDirAndBookmark()
+    {
+        $bookmarkdir = new BookmarkDir();
+        $dirBookmarkList = $bookmarkdir->getList();
+        foreach ($dirBookmarkList as $k => &$firstLevelDir) {
+            foreach ($firstLevelDir['children'] as $key => &$secondLevelDir) {
+                $bookmarkList = $this->getListByDir($secondLevelDir['id']);
+                $secondLevelDir['bookmark_list'] = $bookmarkList;
+            }
+        }
+
+        return $dirBookmarkList;
     }
 
     protected function _filterInfo(&$data)

@@ -15,6 +15,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('blog') }}">Blog</a></li>
+                        <li><a href="{{ route('bookmark') }}">Bookmark</a></li>
                         <li><a href="{{ route('resume') }}">About</a></li>
                     </ul>
                 </div>
@@ -22,3 +23,4 @@
         </div>
     </div>
 </nav>
+<div style="padding-top:50px;"></div>

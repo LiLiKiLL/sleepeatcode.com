@@ -1,4 +1,4 @@
-<div class="row" style="background-color: #34343C;color: #ffffff;">
+<div class="row footer" style="background-color: #34343C;color: #ffffff;">
     <div class="col-md-6 col-md-offset-1">
         <address>
           <h2>Contact Me</h2><br>

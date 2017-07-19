@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>@yield('title')SleepEatCode</title>
     <link rel="shortcut icon" href="/favicon.ico">
@@ -22,6 +23,7 @@
 @yield('js')
 <script>
     $(function() {
+        // tooltip提示
         $("[data-toggle='tooltip']").tooltip();
         // 返回顶部
         $(window).scroll(function () {
@@ -40,6 +42,18 @@
             return false;
         });
         $('#back-to-top').tooltip('show');
+        // 固定底部
+        function footerPosition(){
+            $(".footer").removeClass("fixed-bottom");
+            var contentHeight = document.body.scrollHeight,//网页正文全文高度
+                winHeight = window.innerHeight;//可视窗口高度，不包括浏览器顶部工具栏
+            if(!(contentHeight > winHeight)){
+                //当网页正文高度小于可视窗口高度时，为footer添加类fixed-bottom
+                $(".footer").addClass("fixed-bottom");
+            }
+        }
+        footerPosition();
+        $(window).resize(footerPosition);
     });
 </script>
 </body>
