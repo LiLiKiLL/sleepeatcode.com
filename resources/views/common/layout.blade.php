@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>@yield('title')SleepEatCode</title>
-    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="author" content="陈旭">
+    <meta name="description" content="陈旭的个人博客，PHP开发，做一个靠谱的人。Someone who loves to program and enjoys being clever about it.">
+
+    <!-- Facebook OGP -->
+    <meta property="og:image" content="/images/portrait.gif">
+    <meta property="og:description" content="陈旭的个人博客">
+    <meta property="og:title" content="SleepEatCode">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/common.css" rel="stylesheet">
     <link href="/css/home.css" rel="stylesheet">
